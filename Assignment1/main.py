@@ -38,6 +38,10 @@ class NoteIn(BaseModel):
 class NoteOut(NoteIn):
     id: int
 
+@app.get("/")
+def get_root():
+    return {"message":"API working fine"}
+
 #post request to create a new note
 @app.post("/notes/", response_model=NoteOut)
 async def create_note(note: NoteIn):
